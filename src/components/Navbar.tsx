@@ -83,7 +83,7 @@ export const Navbar: React.FC<ChildComponentProps> = ({ onInputChange }) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            REACT_API_MUI
           </Typography>
           <Search>
             <SearchIconWrapper>
