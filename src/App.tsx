@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Navbar } from "./components/Navbar";
+import { Tablelist } from "./components/Table";
 
 function App() {
+  const [childInputValue, setChildInputValue] = useState<string>("");
+
+  const handleChildInputChange = (value: string) => {
+    setChildInputValue(value);
+    console.log(childInputValue);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onInputChange={handleChildInputChange} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "50px",
+          maxWidth: "auto",
+          marginInline: "auto",
+        }}
+      >
+        <Tablelist value={childInputValue} />
+      </div>
     </div>
   );
 }
